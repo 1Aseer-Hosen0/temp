@@ -1,0 +1,156 @@
+---
+name Obsidian Atelier
+colors
+  surface '#131313'
+  surface-dim '#131313'
+  surface-bright '#3a3939'
+  surface-container-lowest '#0e0e0e'
+  surface-container-low '#1c1b1b'
+  surface-container '#201f1f'
+  surface-container-high '#2a2a2a'
+  surface-container-highest '#353534'
+  on-surface '#e5e2e1'
+  on-surface-variant '#c5c7c9'
+  inverse-surface '#e5e2e1'
+  inverse-on-surface '#313030'
+  outline '#8f9194'
+  outline-variant '#44474a'
+  surface-tint '#c6c6c8'
+  primary '#ffffff'
+  on-primary '#2f3132'
+  primary-container '#e2e2e4'
+  on-primary-container '#636466'
+  inverse-primary '#5d5e60'
+  secondary '#54d7f1'
+  on-secondary '#00363f'
+  secondary-container '#00aac4'
+  on-secondary-container '#003942'
+  tertiary '#ffffff'
+  on-tertiary '#353100'
+  tertiary-container '#f4e640'
+  on-tertiary-container '#6d6600'
+  error '#ffb4ab'
+  on-error '#690005'
+  error-container '#93000a'
+  on-error-container '#ffdad6'
+  primary-fixed '#e2e2e4'
+  primary-fixed-dim '#c6c6c8'
+  on-primary-fixed '#1a1c1d'
+  on-primary-fixed-variant '#454749'
+  secondary-fixed '#a7edff'
+  secondary-fixed-dim '#54d7f1'
+  on-secondary-fixed '#001f25'
+  on-secondary-fixed-variant '#004e5b'
+  tertiary-fixed '#f4e640'
+  tertiary-fixed-dim '#d7ca20'
+  on-tertiary-fixed '#1f1c00'
+  on-tertiary-fixed-variant '#4d4800'
+  background '#131313'
+  on-background '#e5e2e1'
+  surface-variant '#353534'
+rounded
+  sm 0.25rem
+  DEFAULT 0.5rem
+  md 0.75rem
+  lg 1rem
+  xl 1.5rem
+  full 9999px
+spacing
+  gutter 1.5rem
+  gutter-desktop 2.5rem
+  margin 1.5rem
+  margin-tablet 3rem
+  margin-desktop 5rem
+  space-xs 0.25rem
+  space-sm 0.5rem
+  space-md 1rem
+  space-lg 1.75rem
+  space-xl 3rem
+  space-2xl 5rem
+  space-3xl 8rem
+---
+ 
+## Brand & Style
+ 
+The design system establishes an ultra-premium, museum-grade digital craft portfolio experience. Tailored for world-class design leaders, digital ateliers, and high-end creative studios, the aesthetic communicates intellectual restraint, hyper-curated precision, and monumental visual confidence.
+ 
+The design movement synthesizes Minimalist Structuralism and Dark-Mode Editorial Luxury. Interfaces reject excessive ornamentation, relying instead on razor-sharp architectural alignment, generous atmospheric voids, dynamic cyan and yellow accents, hairline micro-borders, and disciplined typographic scale. The atmosphere is quiet, deliberate, and immersive—mirroring the serene luxury of a dimly lit private gallery where individual works of craft command complete attention.
+ 
+## Colors
+ 
+The palette operates in a tightly calibrated chiaroscuro spectrum infused with vivid electric highlights
+ 
+- Surface Void (`#050505`) & Surface Base (`#0A0A0A`) Pure non-reflective deep charcoal blacks acting as the canvas foundation.
+- Surface Elevated (`#141414`) & Surface Card (`#1A1A1A`) Low-luminance charcoal tiers that establish tactile physical layering without washing out contrast.
+- Primary Text (`#F5F5F7`) A warm, crisp alabaster white delivering uncompromising readability and high editorial prestige without harsh glare.
+- Secondary Cyan Accent (`#5bdcf7`) A vibrant, luminous cyan tone used for metadata highlights, active states, and interactive focal points.
+- Tertiary Yellow Accent (`#fff14a`) A striking yellow highlight reserved for subtle interaction glows, curation badges, and micro-delights.
+- Neutral Muted Tones (`#A1A1AA`, `#737373`) Neutral zinc and slate tones used for structural dividing lines and auxiliary body copy.
+ 
+## Typography
+ 
+The typographic hierarchy pairs dramatic, sculptural high-contrast editorial serifs (`Bodoni Moda`) with razor-sharp modernist monospace detailing (`JetBrains Mono`) and an ultra-clean neutral grotesque (`Geist`).
+ 
+- Display & Headlines Set in `Bodoni Moda` with tight letter spacing and condensed leading to create high-fashion architectural impact. On mobile viewports, hero displays step down to preserve balance and avoid erratic wrapping.
+- Indices & Structural Meta Key project enumerations (`01`, `02`, `03`) and chronological indicators are rendered in `JetBrains Mono` with oversized, low-opacity styling to anchor editorial layouts.
+- Body & Longform Set in `Geist` to provide effortless legibility against dark backdrops, maintaining a relaxed 1.6 line height for long case-study narratives.
+- Labels & Micro-Tags Rendered in uppercase `JetBrains Mono` with tracked letter-spacing (+0.08em) for technical precision.
+ 
+## Layout & Spacing
+ 
+The layout is built upon an asymmetric 12-column fluid grid governed by generous architectural margins and distinct vertical pacing
+ 
+- Desktop (1280px+) 12 columns with `2.5rem` gutters and `5rem` page margins. Sections utilize large vertical rhythm scales (`space-2xl` to `space-3xl`) to establish an unhurried, museum-catalogue pacing.
+- Tablet (768px - 1279px) 8 columns with `1.5rem` gutters and `3rem` margins. Multicolumn project lists collapse into staggered 4-column cards.
+- Mobile ( 768px) 4 columns with `1rem` gutters and `1.5rem` outer canvas padding. Grids stack linearly into vertical modules with `space-lg` card gaps.
+ 
+Structural alignments prioritize edge-to-edge full-bleed hero media framed by micro-bordered inner containers. Asymmetrical offsets (e.g., project titles occupying column 1–7 while technical credits anchor columns 9–12) reinforce the editorial sensibility.
+ 
+## Elevation & Depth
+ 
+Visual depth is achieved through layered tonal luminance and subtle micro-borders rather than conventional drop shadows
+ 
+- Tonal Layering The primary background rests at `#050505` (surface-void). Elevated surfaces and interactive project cards use `#0A0A0A` and `#141414`. Floating navigation drawers and modals reside at `#1A1A1A`.
+- Micro-Borders All distinct surface boundaries are defined by sharp 1px borders using `rgba(255, 255, 255, 0.08)`. These hairlines provide crisp boundary definition against obsidian surfaces without introducing heavy visual weight.
+- Cyan & Yellow Backlight & Halos Interactive hover cards and key focal elements utilize ambient luminous glows `box-shadow 0 0 40px -10px rgba(91, 220, 247, 0.08)`. On hover, the border transition shifts to `rgba(91, 220, 247, 0.35)`.
+- Frosted Glassmorphism Sticky headers and floating controls incorporate a glass finish `background rgba(10, 10, 10, 0.75)` with `backdrop-filter blur(16px)` and a bottom border of `rgba(255, 255, 255, 0.06)`.
+ 
+## Shapes
+ 
+The design system embraces a Rounded  Modern Architectural shape geometry (`roundedness 2`). 
+ 
+- Default elements (cards, containers, inputs, media previews) employ clean `0.5rem` (8px) corner radii, balancing structural precision with a more tactile, approachable finish.
+- Modal dialogs, floating action islands, and showcase overlays utilize `1rem` (16px).
+- Metadata badges, status tags, and interactive action pills use full circular rounding (`rounded-full`  9999px) to establish geometric contrast against the dominant card rhythm.
+ 
+## Components
+ 
+### Buttons
+- Primary Dark obsidian pill with crisp alabaster text (`#F5F5F7`), a 1px border of `rgba(255, 255, 255, 0.2)`, and subtle cyan inner luminance. On hover, background transitions to `#1A1A1A` with a micro-scale shift (1.02x) and cyan border brighten (`#5bdcf7`).
+- Secondary  Ghost Transparent background with 1px `border-subtle`, paired with `JetBrains Mono` label text. On hover, fills with `rgba(255, 255, 255, 0.04)`.
+- Editorial Action Unbordered inline text link featuring an animated hairline underline that expands from 0% to 100% width on hover.
+ 
+### Project Showcase Cards
+- Structured rectangular cards with `0.5rem` radius, bordered by `1px rgba(255, 255, 255, 0.08)`.
+- Media container features a desaturated or tinted initial state, shifting to full luminous color and a slow 1.04x zoom upon card hover.
+- Top card header displays a two-digit index numeral (`01`, `02`) in muted `JetBrains Mono` alongside the project category tag.
+- Card title rendered in `headline-md` (`Bodoni Moda`) across the lower boundary.
+ 
+### Chips & Metadata Tags
+- Compact height (24px to 28px) with full pill border radius.
+- Background set to `rgba(91, 220, 247, 0.06)` with a hairline border of `rgba(91, 220, 247, 0.2)`.
+- Typography styled in uppercase `label-mono` (`0.75rem`) in secondary cyan (`#5bdcf7`).
+ 
+### Input Fields
+- Sleek, low-profile inputs with a background of `#0A0A0A` and a bottom-only 1px hairline border or subtle four-sided stroke (`rgba(255, 255, 255, 0.12)`).
+- Placeholder text in `#737373`.
+- Focus state eliminates standard browser rings, activating a 1px border transition to `#5bdcf7` with a faint `0 0 12px rgba(91, 220, 247, 0.2)` aura.
+ 
+### Checkboxes & Radio Buttons
+- Monolithic square checkboxes (6px radius) and circular radio buttons with a 1px border of `rgba(255, 255, 255, 0.25)` over `#141414`.
+- Selected state fills with cyan `#5bdcf7` with an obsidian inner mark (`#0A0A0A`).
+ 
+### Editorial Index Lists
+- Full-width row items divided by horizontal 1px hairline borders (`rgba(255, 255, 255, 0.06)`).
+- Grid layout index numeral (col 1), title & client (col 2–7), service disciplines (col 8–10), year (col 11–12).
+- Row hover triggers smooth horizontal indentation (+8px) for the project title and initiates a floating cursor-following image preview thumbnail.

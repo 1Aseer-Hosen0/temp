@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Principles & Toolbox — Aseer Hosen</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&family=JetBrains+Mono:wght@400;500&family=Geist:wght@300;400&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<script>
+  tailwind.config = { theme: { extend: {
+    colors: { void:'#050505', base:'#0A0A0A', elevated:'#141414', ink:'#F5F5F7', cyan:{ DEFAULT:'#5bdcf7' }, mute:'#A1A1AA', dim:'#737373' },
+    fontFamily: { display:['"Bricolage Grotesque"','sans-serif'], sans:['Geist','sans-serif'], mono:['"JetBrains Mono"','monospace'] },
+    borderColor: { hair:'rgba(255,255,255,0.08)' }
+  } } }
+</script>
+<style>
+  html { scrollbar-width:none } html::-webkit-scrollbar { display:none }
+  body { background:#050505; color:#F5F5F7; font-family:Geist,sans-serif; -webkit-font-smoothing:antialiased }
+  ::selection { background:#5bdcf7; color:#050505 }
+  .grain { position:fixed; inset:0; z-index:90; pointer-events:none; opacity:.06;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E") }
+  .mono { font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.08em; text-transform:uppercase }
+  .h2 { font-family:'Bricolage Grotesque',sans-serif; font-variation-settings:'wdth' 75; font-weight:700; letter-spacing:-.03em; line-height:.95 }
+  .w { display:inline-block; overflow:hidden; vertical-align:top; padding:.08em .03em .12em; margin:-.08em -.03em -.12em } .wi { display:inline-block }
+  /* Principles: rolling word, duplicate slides up in cyan */
+  .pw { transition:opacity .5s } .pr:hover .pw { opacity:1 !important }
+  .roll { display:block; position:relative; overflow:hidden; padding:.06em .02em .12em; margin:-.06em -.02em -.12em }
+  .r1, .r2 { display:block; transition:transform .8s cubic-bezier(.16,1,.3,1) } .r2 { position:absolute; left:.02em; top:calc(100% - .12em); color:#5bdcf7 }
+  .pr:hover .r1, .pr:hover .r2 { transform:translateY(-100%) }
+  /* Toolbox */
+  .pn { position:sticky; transform-origin:50% 0%; will-change:transform, filter }
+  .sk { transition:background .4s } .sk:hover { background:rgba(91,220,247,.03) }
+  .rin { transition:transform .55s cubic-bezier(.16,1,.3,1) } .sk:hover .rin { transform:translateX(8px) }
+  .tt { transition:color .3s } .sk:hover .tt { color:#5bdcf7 } .nt { transition:color .3s } .sk:hover .nt { color:#F5F5F7 }
+  .ti { display:none; width:26px; height:26px } @media (hover:none) { .ti { display:block } #tip { display:none } }
+  .sk:focus-visible { outline:1px solid #5bdcf7; outline-offset:-1px }
+</style>
+</head>
+<body>
+<div class="grain"></div>
+
+<!-- Floating icon preview that follows the cursor -->
+<div id="tip" class="fixed left-0 top-0 z-[80] pointer-events-none w-[104px] rounded-lg border border-hair bg-elevated/90 backdrop-blur-[16px] flex flex-col items-center gap-2.5 pt-5 pb-3.5" style="box-shadow:0 0 40px -10px rgba(91,220,247,.25);opacity:0">
+  <div class="relative w-12 h-12 grid place-items-center">
+    <img id="tipImg" alt="" class="w-full h-full object-contain" hidden>
+    <span id="tipMono" class="h2 text-[34px] text-cyan" hidden></span>
+  </div>
+  <span id="tipCap" class="mono text-[9px] text-mute"></span>
+</div>
+
+<section id="skills" class="relative pl-6 pr-14 md:pl-20 md:pr-20 pt-28 md:pt-40 pb-28 md:pb-40 flex flex-col gap-32 md:gap-52">
+
+  <!-- ========== [03] PRINCIPLES ========== -->
+  <div id="principles">
+    <div class="flex justify-between mono text-dim pb-4"><span><span class="text-cyan">[03]</span>&nbsp; Principles</span><span>fig. 02 · idea → build</span></div>
+    <div class="hl h-px bg-white/10 mb-6 md:mb-10"></div>
+
+    <div>
+      <div class="pr relative border-b border-hair py-6 md:py-9" data-rv data-cursor="link"><div class="flex items-end justify-between gap-6">
+        <h3 class="pw h2 text-[clamp(56px,12vw,190px)]" aria-label="Considered."><span class="roll"><span class="r1">Considered.</span><span class="r2" aria-hidden="true">Considered.</span></span></h3>
+        <p class="hidden md:block mono text-right pb-4 flex-none"><span class="text-dim">01</span><br><span class="text-mute">Every pixel earns its place</span></p></div></div>
+      <div class="pr relative border-b border-hair py-6 md:py-9" data-rv data-cursor="link"><div class="flex items-end justify-between gap-6">
+        <h3 class="pw h2 text-[clamp(56px,12vw,190px)]" aria-label="Fluid."><span class="roll"><span class="r1">Fluid.</span><span class="r2" aria-hidden="true">Fluid.</span></span></h3>
+        <p class="hidden md:block mono text-right pb-4 flex-none"><span class="text-dim">02</span><br><span class="text-mute">60 fps · motion profiled</span></p></div></div>
+      <div class="pr relative border-b border-hair py-6 md:py-9" data-rv data-cursor="link"><div class="flex items-end justify-between gap-6">
+        <h3 class="pw h2 text-[clamp(56px,12vw,190px)]" aria-label="Accessible."><span class="roll"><span class="r1">Accessible.</span><span class="r2" aria-hidden="true">Accessible.</span></span></h3>
+        <p class="hidden md:block mono text-right pb-4 flex-none"><span class="text-dim">03</span><br><span class="text-mute">WCAG 2.1 AA · keyboard first</span></p></div></div>
+    </div>
+
+    <p data-rv class="mt-12 md:mt-20 md:ml-auto max-w-[44ch] text-[clamp(18px,1.6vw,24px)] font-light leading-[1.5] text-ink/90">A design starts as a feeling. My job is to carry it into the browser without losing a detail: on a phone, on a keyboard, even with motion switched off.</p>
+  </div>
+
+  <!-- ========== [04] TOOLBOX ========== -->
+  <div id="toolbox">
+    <div class="flex justify-between mono text-dim pb-4"><span><span class="text-cyan">[04]</span>&nbsp; Toolbox</span><span id="toolCount">16 tools · 3 shelves</span></div>
+    <div class="hl h-px bg-white/10 mb-10 md:mb-16"></div>
+    <h2 data-split class="h2 text-[clamp(40px,7vw,104px)] max-w-[14ch] mb-14 md:mb-24">Tools that earned their place.</h2>
+    <div id="stack" class="flex flex-col gap-6 pb-[8vh]"></div>
+  </div>
+</section>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+gsap.registerPlugin(ScrollTrigger);
+const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
+
+/* ---------- Skillset data (edit this array; React port = map over it) ----------
+   item: [name, icon, note, invertOnDark]. icon = devicon slug or a full image URL. */
+const dv = s => `https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/${s}/${s}-original.svg`;
+const GROUPS = [
+  { n: '01', t: 'Design', d: 'I start in Figma with a feeling, then turn it into a system: type, spacing, states and motion notes that a browser can actually keep.',
+    items: [['Figma', dv('figma'), 'Interfaces · systems · prototypes'], ['Photoshop', dv('photoshop'), 'Image work · retouching'], ['Illustrator', dv('illustrator'), 'Vectors · marks · icons'], ['Blender', dv('blender'), '3D · textures · renders']] },
+  { n: '02', t: 'Development', d: 'Hand-built, semantic and fast. I write the markup and the styles myself, so every detail in the design survives the build.',
+    items: [['HTML', dv('html5'), 'Semantic, accessible markup'], ['CSS', dv('css3'), 'Grid · layers · modern CSS'], ['JavaScript', dv('javascript'), 'Interaction · state · APIs'], ['TypeScript', dv('typescript'), 'Typed, safer builds'], ['React', dv('react'), 'Components · hooks'], ['Tailwind CSS', dv('tailwindcss'), 'Tokens · utility-first']] },
+  { n: '03', t: 'Motion & tooling', d: 'Scroll-linked stories, smooth cursors and 60 fps transitions, shipped with a workflow that keeps them maintainable.',
+    items: [['GSAP', 'https://cdn.simpleicons.org/greensock/88CE02', 'ScrollTrigger · timelines'], ['Framer Motion', 'https://cdn.simpleicons.org/framer/ffffff', 'Springs · layout transitions'], ['Three.js', dv('threejs'), 'WebGL · shaders', 1], ['Lenis', '', 'Smooth, inertial scroll'], ['Vite', dv('vitejs'), 'Fast builds'], ['Git', dv('git'), 'Version control']] }
+];
+const corner = '<i class="absolute -top-px -left-px w-2.5 h-2.5 border-t border-l border-cyan"></i><i class="absolute -bottom-px -right-px w-2.5 h-2.5 border-b border-r border-cyan"></i>';
+$('#stack').innerHTML = GROUPS.map((g, i) => `
+<article class="pn relative min-h-[calc(100vh-9rem)] rounded-lg border border-hair bg-base p-6 md:p-12 grid lg:grid-cols-12 gap-10 lg:gap-16" style="top:calc(5rem + ${i * 18}px)">${corner}
+  <div class="lg:col-span-5 flex flex-col">
+    <span class="mono text-cyan">${g.n}.</span>
+    <h3 class="h2 text-[clamp(48px,6.4vw,104px)] mt-4">${g.t}</h3>
+    <p class="mt-6 text-mute leading-relaxed max-w-[38ch] text-[16px] md:text-[17px]">${g.d}</p>
+    <span class="mono text-dim mt-auto pt-10">${String(g.items.length).padStart(2, '0')} tools${i === 0 ? ' · hover to preview' : ''}</span>
+  </div>
+  <ul class="lg:col-span-7 border-t border-hair self-start">${g.items.map((it, k) => `
+    <li class="sk flex items-center border-b border-hair py-5 md:py-6 outline-none" tabindex="0" data-rv data-name="${it[0]}" data-icon="${it[1]}" data-inv="${it[3] ? 1 : 0}">
+      <span class="rin flex items-center gap-5 md:gap-8 w-full"><span class="mono text-dim w-6">${String(k + 1).padStart(2, '0')}</span>
+        <span class="tt h2 text-[clamp(28px,3.2vw,42px)]">${it[0]}</span>
+        <span class="nt hidden md:block ml-auto mono text-dim normal-case tracking-normal text-[12px]">${it[2]}</span></span>
+      <img class="ti ml-4" alt="" ${it[1] ? `src="${it[1]}"` : 'hidden'} ${it[3] ? 'style="filter:invert(1)"' : ''} onerror="this.hidden=true"></li>`).join('')}
+  </ul>
+</article>`).join('');
+
+/* ---------- Reveals ---------- */
+$$('[data-split]').forEach(el => {
+  const t = el.textContent.trim(); el.setAttribute('aria-label', t);
+  el.innerHTML = t.split(' ').map(w => `<span class="w" aria-hidden="true"><span class="wi">${w}</span></span>`).join(' ');
+  const wi = el.querySelectorAll('.wi'); gsap.set(wi, { yPercent: 115 });
+  ScrollTrigger.create({ trigger: el, start: 'top 88%', once: true, onEnter: () => gsap.to(wi, { yPercent: 0, duration: 1.3, stagger: .07, ease: 'expo.out' }) });
+});
+$$('.hl').forEach(h => { gsap.set(h, { scaleX: 0, transformOrigin: 'left' });
+  ScrollTrigger.create({ trigger: h, start: 'top 92%', once: true, onEnter: () => gsap.to(h, { scaleX: 1, duration: 1.5, ease: 'expo.inOut' }) }); });
+gsap.set('[data-rv]', { opacity: 0, y: 32 });
+ScrollTrigger.batch('[data-rv]', { start: 'top 92%', once: true, onEnter: b => gsap.to(b, { opacity: 1, y: 0, duration: 1.1, stagger: .08, ease: 'expo.out' }) });
+
+/* ---------- Principles: the word crossing the middle of the screen lights up ---------- */
+$$('.pr').forEach(r => { const w = r.querySelector('.pw'); gsap.set(w, { opacity: .2 });
+  ScrollTrigger.create({ trigger: r, start: 'top 70%', end: 'bottom 38%', onToggle: s => gsap.to(w, { opacity: s.isActive ? 1 : .2, duration: .6, ease: 'power2.out' }) }); });
+
+/* ---------- Toolbox: stacked sticky shelves (each new one slides over the last, which recedes) ---------- */
+const panels = $$('.pn');
+panels.forEach((p, i) => { const nx = panels[i + 1]; if (!nx) return;
+  gsap.to(p, { scale: .93, filter: 'brightness(.45)', ease: 'none',
+    scrollTrigger: { trigger: nx, start: 'top bottom', end: `top ${5 * 16 + (i + 1) * 18}px`, scrub: true } }); });
+
+/* ---------- Cursor-following icon preview ---------- */
+const tip = $('#tip'), img = $('#tipImg'), mono = $('#tipMono'), cap = $('#tipCap');
+gsap.set(tip, { scale: .6, rotation: 0 });
+const tx = gsap.quickTo(tip, 'x', { duration: .55, ease: 'power3' }), ty = gsap.quickTo(tip, 'y', { duration: .55, ease: 'power3' }), tr = gsap.quickTo(tip, 'rotation', { duration: .7, ease: 'power3' });
+let mx = 0, my = 0, lx = 0, shown = false, rt;
+addEventListener('mousemove', e => {
+  mx = e.clientX; my = e.clientY; tx(mx + 30); ty(my - 60);
+  tr(gsap.utils.clamp(-14, 14, (mx - lx) * .6)); lx = mx; clearTimeout(rt); rt = setTimeout(() => tr(0), 90);
+});
+function show(li, x, y) {
+  const url = li.dataset.icon, name = li.dataset.name;
+  cap.textContent = name; mono.textContent = name.slice(0, 2); img.style.filter = li.dataset.inv === '1' ? 'invert(1)' : '';
+  img.onload = () => { img.hidden = false; mono.hidden = true; }; img.onerror = () => { img.hidden = true; mono.hidden = false; };
+  if (url) { img.src = url; if (img.complete && img.naturalWidth) img.onload(); } else img.onerror();
+  if (!shown) { gsap.set(tip, { x: x + 30, y: y - 60 }); shown = true; }
+  gsap.to(tip, { opacity: 1, scale: 1, duration: .55, ease: 'expo.out', overwrite: 'auto' });
+  gsap.fromTo([img, mono], { scale: .5, opacity: 0, rotate: -14 }, { scale: 1, opacity: 1, rotate: 0, duration: .7, ease: 'back.out(2.2)', overwrite: true });
+}
+const hide = () => { shown = false; gsap.to(tip, { opacity: 0, scale: .6, duration: .35, ease: 'power3.in', overwrite: 'auto' }); };
+$$('.sk').forEach(li => {
+  li.addEventListener('mouseenter', e => show(li, e.clientX, e.clientY));
+  li.addEventListener('mouseleave', hide);
+  li.addEventListener('focus', () => { const r = li.getBoundingClientRect(); show(li, r.right - 160, r.top + r.height / 2 + 60); });
+  li.addEventListener('blur', hide);
+});
+addEventListener('load', () => $$('.sk').forEach(li => li.dataset.icon && (new Image().src = li.dataset.icon)));
+</script>
+</body>
+</html>

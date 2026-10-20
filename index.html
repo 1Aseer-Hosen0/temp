@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aseer Hosen — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&family=JetBrains+Mono:wght@400;500&family=Geist:wght@300;400&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<script>
+  // Shared tokens: copy into tailwind.config.js for the React port
+  tailwind.config = { theme: { extend: {
+    colors: { void:'#050505', base:'#0A0A0A', elevated:'#141414', card:'#1A1A1A', ink:'#F5F5F7', cyan:{ DEFAULT:'#5bdcf7' }, spark:'#fff14a', mute:'#A1A1AA', dim:'#737373' },
+    fontFamily: { display:['"Bricolage Grotesque"','sans-serif'], sans:['Geist','sans-serif'], mono:['"JetBrains Mono"','monospace'] },
+    borderColor: { hair:'rgba(255,255,255,0.08)' }
+  } } }
+</script>
+<style>
+  html { scrollbar-width:none } html::-webkit-scrollbar, body::-webkit-scrollbar { display:none }
+  html.lenis, html.lenis body { height:auto } .lenis.lenis-smooth { scroll-behavior:auto !important }
+  body { background:#050505; color:#F5F5F7; font-family:Geist,sans-serif; -webkit-font-smoothing:antialiased }
+  ::selection { background:#5bdcf7; color:#050505 }
+  .grain { position:fixed; inset:0; z-index:90; pointer-events:none; opacity:.06;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E") }
+  .name { font-family:'Bricolage Grotesque',sans-serif; font-variation-settings:'wdth' 75; font-weight:700; letter-spacing:-.035em }
+  .word { display:inline-block; overflow:hidden; padding:.05em .05em .1em; margin:-.05em -.05em -.1em }
+  .char { display:inline-block; will-change:transform }
+  .btn { display:inline-flex; align-items:center; height:44px; padding:0 26px; border-radius:9999px; border:1px solid rgba(255,255,255,.2); background:#0A0A0A;
+    font:500 12px 'JetBrains Mono',monospace; letter-spacing:.08em; box-shadow:inset 0 -10px 18px -12px rgba(91,220,247,.35); transition:border-color .3s, background .3s }
+  .btn:hover { border-color:#5bdcf7; background:#1A1A1A } .btn:focus-visible { outline:1px solid #5bdcf7; outline-offset:4px }
+  .row { transition:padding-left .45s cubic-bezier(.16,1,.3,1), color .3s } .row:hover { padding-left:8px; color:#5bdcf7 }
+  #thumb { transition:width .25s, background .25s } #track:hover #thumb, #track.on #thumb { width:6px }
+  @keyframes ping { 0%{ box-shadow:0 0 0 0 rgba(91,220,247,.6) } 100%{ box-shadow:0 0 0 9px rgba(91,220,247,0) } }
+  .dot { animation:ping 2s infinite }
+  #cur-ring { width:44px; height:44px; margin:-22px 0 0 -22px; border:1px solid rgba(245,245,247,.5); border-radius:9999px; display:flex; align-items:center; justify-content:center; mix-blend-mode:difference }
+  #cur-dot { width:6px; height:6px; margin:-3px 0 0 -3px; background:#F5F5F7; border-radius:9999px; mix-blend-mode:difference }
+  @media (hover:none) { #cur-ring, #cur-dot { display:none } }
+</style>
+</head>
+<body>
+
+<div class="grain"></div>
+<div id="cur-ring" class="fixed left-0 top-0 z-[100] pointer-events-none"><span id="cur-label" class="font-mono text-[9px] tracking-[.08em] text-white opacity-0">HELLO</span></div>
+<div id="cur-dot" class="fixed left-0 top-0 z-[100] pointer-events-none"></div>
+
+<!-- Loader -->
+<div id="loader" class="fixed inset-0 z-[95] bg-void flex items-end justify-between p-6 md:p-12">
+  <span class="font-mono text-xs tracking-[.08em] text-dim">Aseer Hosen, portfolio 2026</span>
+  <span id="count" class="name text-[26vw] md:text-[16vw] leading-[.8] text-ink tabular-nums">0</span>
+</div>
+
+<!-- FIXED: header (swap LOGO later) -->
+<header class="fixed inset-x-0 top-0 h-16 z-[70] border-b border-hair bg-base/75 backdrop-blur-[16px] flex items-center justify-center">
+  <a href="#hero" class="font-mono text-sm tracking-[.3em] text-ink" data-cursor="link">LOGO</a>
+</header>
+
+<!-- FIXED: custom scrollbar rail (nav links get added here later) -->
+<aside class="fixed right-0 top-16 bottom-0 w-10 md:w-14 z-[60] border-l border-hair bg-base/70 backdrop-blur-[16px]">
+  <span id="pct" class="absolute top-5 inset-x-0 text-center font-mono text-[10px] tracking-[.08em] text-mute tabular-nums">000</span>
+  <div id="track" class="absolute inset-x-0 top-14 bottom-28 cursor-pointer touch-none" data-cursor="link">
+    <div class="absolute left-1/2 -translate-x-1/2 inset-y-0 w-px bg-white/10"></div>
+    <div id="thumb" class="absolute left-1/2 -ml-[1.5px] top-0 h-16 w-[3px] rounded-full bg-cyan" style="margin-left:0;transform:translateX(-50%)"></div>
+  </div>
+  <span class="absolute bottom-6 inset-x-0 flex justify-center font-mono text-[10px] tracking-[.08em] text-dim [writing-mode:vertical-rl]">Scroll</span>
+</aside>
+
+<!-- ============ HERO ============ -->
+<section id="hero" class="relative h-screen min-h-[680px] overflow-hidden bg-void">
+  <canvas id="topo" class="absolute inset-0 w-full h-full"></canvas>
+  <div class="absolute inset-0 pointer-events-none" style="background:radial-gradient(ellipse at 50% 55%,transparent 30%,#050505 92%)"></div>
+
+  <div class="absolute left-0 top-16 bottom-0 right-10 md:right-14 [--fw:64vw] md:[--fw:clamp(300px,28vw,420px)]">
+
+    <!-- Portrait frame (back layer) -->
+    <div id="frame" class="absolute inset-y-0 inset-x-0 mx-auto w-[var(--fw)] z-0 border border-hair border-b-0 rounded-t-lg bg-base/60"></div>
+
+    <!-- Name: BEHIND the portrait -->
+    <div id="nameMove" class="absolute inset-x-0 top-[17%] md:top-[24%] z-10 pointer-events-none select-none">
+      <h1 class="name text-ink leading-[.84] text-[27vw] md:text-[13.5vw] lg:text-[15.5vw] text-center md:flex md:justify-center md:[gap:calc(var(--fw)*.62)]" aria-label="Aseer Hosen">
+        <span class="word w1" aria-hidden="true">Aseer</span><br class="md:hidden"><span class="word w2" aria-hidden="true">Hosen</span>
+      </h1>
+    </div>
+
+    <!-- Portrait (front layer, clipped to frame) -->
+    <div id="photoScroll" class="absolute inset-y-0 inset-x-0 mx-auto w-[var(--fw)] z-20 overflow-hidden rounded-t-lg" data-cursor="hello">
+      <div id="photoMove" class="absolute inset-0"><div id="photo" class="absolute inset-0 origin-bottom">
+        <img src="aseer.png" alt="Portrait of Aseer Hosen" class="absolute bottom-0 left-1/2 -translate-x-1/2 max-w-none h-[min(100%,calc(var(--fw)*2.1))] aspect-square" style="filter:contrast(1.05) saturate(.9)">
+      </div></div>
+    </div>
+
+    <!-- Moto: difference blend so it reads over both shirt and suit -->
+    <p id="motoWrap" class="absolute inset-x-0 top-[62%] md:top-[63%] z-30 text-center px-6 pointer-events-none">
+      <span class="inline-block overflow-hidden align-bottom"><span id="motoInner" class="inline-block font-sans font-light text-[15px] md:text-[17px] text-white" style="mix-blend-mode:difference">Designing quiet things that stay with you.</span></span>
+    </p>
+
+    <!-- UI layer: corners -->
+    <div id="ui" class="absolute inset-0 z-30 pointer-events-none">
+      <ul class="rv hidden md:block absolute left-20 top-10 w-60 font-sans text-[15px] text-ink/90 pointer-events-auto">
+        <li class="row py-2.5 border-b border-hair" data-cursor="link">Interface design</li>
+        <li class="row py-2.5 border-b border-hair" data-cursor="link">Creative development</li>
+        <li class="row py-2.5 border-b border-hair" data-cursor="link">Motion &amp; interaction</li>
+      </ul>
+
+      <div class="rv absolute right-6 md:right-20 top-6 md:top-10 text-right font-mono text-[11px] leading-6 tracking-[.04em] text-mute tabular-nums">
+        <span class="inline-flex items-center gap-2 h-7 px-3 rounded-full border border-cyan/20 bg-cyan/[.06] text-cyan uppercase text-[10px] tracking-[.08em]"><i class="dot w-1.5 h-1.5 rounded-full bg-cyan"></i>Open for projects</span>
+        <div class="mt-3">Dhaka, BD &nbsp;<span id="clock">00:00:00</span></div>
+        <div class="hidden md:block text-dim">Contour at cursor <span id="elev" class="text-ink">0.500</span></div>
+      </div>
+
+      <p class="rv hidden md:block absolute right-20 bottom-8 w-64 text-[13px] leading-[1.6] text-mute">Interface designer and creative developer. I build websites that move with intent: slow, precise, and made to be remembered.</p>
+
+      <div id="actions" class="absolute left-6 md:left-20 bottom-8 flex gap-3 pointer-events-auto">
+        <a href="#projects" class="btn text-ink" data-mag data-cursor="link">Projects</a>
+        <a href="#contact" class="btn text-ink" data-mag data-cursor="link">Contact</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="h-[140vh] border-t border-hair flex items-center justify-center font-mono text-xs text-dim">Next section goes here</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.20/dist/lenis.min.js"></script>
+<script>
+gsap.registerPlugin(ScrollTrigger);
+const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
+const touch = matchMedia('(hover:none)').matches;
+
+/* Smooth scroll */
+const lenis = new Lenis({ lerp: .08 });
+lenis.on('scroll', ScrollTrigger.update);
+gsap.ticker.add(t => lenis.raf(t * 1000)); gsap.ticker.lagSmoothing(0);
+lenis.stop();
+
+/* Custom scrollbar: thumb follows scroll, drag or click to seek */
+const track = $('#track'), thumb = $('#thumb'), pct = $('#pct'), TH = 64;
+lenis.on('scroll', ({ scroll, limit }) => {
+  const p = limit ? scroll / limit : 0;
+  thumb.style.top = p * (track.clientHeight - TH) + 'px';
+  pct.textContent = String(Math.round(p * 100)).padStart(3, '0');
+});
+let drag = false;
+const seek = (e, now) => {
+  const r = track.getBoundingClientRect(), p = Math.min(1, Math.max(0, (e.clientY - r.top - TH / 2) / (r.height - TH)));
+  lenis.scrollTo(p * lenis.limit, { immediate: now });
+};
+track.addEventListener('pointerdown', e => { drag = true; track.classList.add('on'); track.setPointerCapture(e.pointerId); seek(e, e.target === thumb); });
+track.addEventListener('pointermove', e => drag && seek(e, true));
+track.addEventListener('pointerup', () => { drag = false; track.classList.remove('on'); });
+
+/* Split name */
+$$('.word').forEach(w => { const t = w.textContent; w.textContent = '';
+  [...t].forEach(c => { const s = document.createElement('span'); s.className = 'char'; s.textContent = c; w.appendChild(s); }); });
+
+/* Clock (Dhaka) */
+const fmt = new Intl.DateTimeFormat('en-GB', { timeZone: 'Asia/Dhaka', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false });
+const tick = () => $('#clock').textContent = fmt.format(new Date()); tick(); setInterval(tick, 1000);
+
+/* Topographic contour field */
+const cv = $('#topo'), ctx = cv.getContext('2d');
+let W, H, S, cols, rows, F, mx = innerWidth / 2, my = innerHeight / 2, sx = mx, sy = my, ox, oy;
+const hash = (x, y) => { const n = Math.sin(x * 127.1 + y * 311.7) * 43758.5453; return n - Math.floor(n); };
+const noise = (x, y) => { const xi = Math.floor(x), yi = Math.floor(y), xf = x - xi, yf = y - yi, u = xf * xf * (3 - 2 * xf), v = yf * yf * (3 - 2 * yf),
+  a = hash(xi, yi), b = hash(xi + 1, yi), c = hash(xi, yi + 1), d = hash(xi + 1, yi + 1); return a + (b - a) * u + (c - a) * v + (a - b - c + d) * u * v; };
+function resize() { const dpr = Math.min(devicePixelRatio, 2); W = cv.clientWidth; H = cv.clientHeight; cv.width = W * dpr; cv.height = H * dpr;
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0); S = W < 768 ? 18 : 14; cols = Math.ceil(W / S) + 2; rows = Math.ceil(H / S) + 2; F = new Float32Array(cols * rows); }
+resize(); addEventListener('resize', resize);
+addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+const SEG = [[],[3,2],[2,1],[3,1],[0,1],[0,3,2,1],[0,2],[0,3],[0,3],[0,2],[0,1,3,2],[0,1],[3,1],[2,1],[3,2],[]];
+function P(e, x, y, a, b, c, d, t) {
+  if (e === 0) { ox = x + (t - a) / (b - a) * S; oy = y; } else if (e === 1) { ox = x + S; oy = y + (t - b) / (c - b) * S; }
+  else if (e === 2) { ox = x + (t - d) / (c - d) * S; oy = y + S; } else { ox = x; oy = y + (t - a) / (d - a) * S; }
+}
+const levels = Array.from({ length: 16 }, (_, i) => .24 + i * .034), topoAlpha = { v: 0 }; let frame = 0;
+function drawTopo(time) {
+  const t = time * .00006; sx += (mx - sx) * .06; sy += (my - sy) * .06;
+  for (let j = 0; j < rows; j++) for (let i = 0; i < cols; i++) {
+    const nx = i * .05, ny = j * .05, dx = i * S - sx, dy = j * S - sy;
+    F[j * cols + i] = .6 * noise(nx + t * 2, ny - t) + .3 * noise(nx * 2.2 - t * 3, ny * 2.2 + t * 2) + .1 * noise(nx * 4.5 + t, ny * 4.5 - t * 2) + .2 * Math.exp(-(dx * dx + dy * dy) / 48000);
+  }
+  if (frame % 8 === 0) $('#elev').textContent = (F[Math.round(sy / S) * cols + Math.round(sx / S)] || 0).toFixed(3);
+  ctx.clearRect(0, 0, W, H); ctx.globalAlpha = topoAlpha.v; ctx.lineWidth = 1;
+  levels.forEach((lv, li) => {
+    ctx.beginPath();
+    for (let j = 0; j < rows - 1; j++) for (let i = 0; i < cols - 1; i++) {
+      const a = F[j * cols + i], b = F[j * cols + i + 1], c = F[(j + 1) * cols + i + 1], d = F[(j + 1) * cols + i],
+            s = SEG[(a > lv ? 8 : 0) | (b > lv ? 4 : 0) | (c > lv ? 2 : 0) | (d > lv ? 1 : 0)];
+      for (let n = 0; n < s.length; n += 2) { P(s[n], i * S, j * S, a, b, c, d, lv); ctx.moveTo(ox, oy); P(s[n + 1], i * S, j * S, a, b, c, d, lv); ctx.lineTo(ox, oy); }
+    }
+    ctx.strokeStyle = li % 4 === 0 ? 'rgba(91,220,247,.26)' : 'rgba(255,255,255,.075)'; ctx.stroke();
+  });
+}
+gsap.ticker.add(time => { if (scrollY < innerHeight * 1.05 && frame++ % 2 === 0) drawTopo(time); });
+
+/* Cursor, magnetic buttons, mouse depth */
+if (!touch) {
+  const q = (s, p, d, e = 'power3') => gsap.quickTo(s, p, { duration: d, ease: e }),
+        rx = q('#cur-ring', 'x', .5), ry = q('#cur-ring', 'y', .5), dx = q('#cur-dot', 'x', .08, 'none'), dy = q('#cur-dot', 'y', .08, 'none'),
+        nx = q('#nameMove', 'x', 1.2), ny = q('#nameMove', 'y', 1.2), px = q('#photoMove', 'x', 1.2), py = q('#photoMove', 'y', 1.2);
+  addEventListener('mousemove', e => { rx(e.clientX); ry(e.clientY); dx(e.clientX); dy(e.clientY);
+    const x = e.clientX / innerWidth - .5, y = e.clientY / innerHeight - .5; nx(x * -36); ny(y * -14); px(x * 14); py(y * 8); });
+  $$('[data-cursor]').forEach(el => { const hello = el.dataset.cursor === 'hello';
+    el.addEventListener('mouseenter', () => { gsap.to('#cur-ring', { scale: hello ? 1.9 : 1.5, duration: .4, ease: 'power3' }); gsap.to('#cur-label', { opacity: hello ? 1 : 0, duration: .2 }); gsap.to('#cur-dot', { scale: 0, duration: .2 }); });
+    el.addEventListener('mouseleave', () => { gsap.to('#cur-ring', { scale: 1, duration: .4, ease: 'power3' }); gsap.to('#cur-label', { opacity: 0, duration: .15 }); gsap.to('#cur-dot', { scale: 1, duration: .2 }); }); });
+  $$('[data-mag]').forEach(b => { const qx = q(b, 'x', .5), qy = q(b, 'y', .5);
+    b.addEventListener('mousemove', e => { const r = b.getBoundingClientRect(); qx((e.clientX - r.left - r.width / 2) * .3); qy((e.clientY - r.top - r.height / 2) * .4); });
+    b.addEventListener('mouseleave', () => { qx(0); qy(0); }); });
+}
+
+/* Intro */
+gsap.set('.char', { yPercent: 115 }); gsap.set('#frame', { clipPath: 'inset(100% 0% 0% 0%)' });
+gsap.set('#photo', { opacity: 0, scale: 1.08 }); gsap.set('#motoInner', { yPercent: 120 });
+gsap.set('#actions > *', { opacity: 0, y: 20 }); gsap.set('.rv', { opacity: 0, y: 16 }); gsap.set('header', { yPercent: -100 });
+gsap.set('aside', { xPercent: 100 });
+const count = { v: 0 };
+gsap.timeline({ defaults: { ease: 'expo.out' } })
+  .to(count, { v: 100, duration: 1.5, ease: 'power2.inOut', onUpdate: () => $('#count').textContent = Math.round(count.v) })
+  .to('#loader', { yPercent: -100, duration: 1.1, ease: 'expo.inOut' }, '+=.15')
+  .add(() => lenis.start(), '-=.4')
+  .to(topoAlpha, { v: 1, duration: 2.4, ease: 'power2.out' }, '-=.9')
+  .to('#frame', { clipPath: 'inset(0% 0% 0% 0%)', duration: 1.4, ease: 'expo.inOut' }, '-=.9')
+  .to('#photo', { opacity: 1, scale: 1, duration: 1.8 }, '-=.7')
+  .to('.char', { yPercent: 0, duration: 1.3, stagger: .055 }, '-=1.5')
+  .to('header', { yPercent: 0, duration: 1 }, '-=1.1').to('aside', { xPercent: 0, duration: 1 }, '<')
+  .to('#motoInner', { yPercent: 0, duration: 1 }, '-=.8')
+  .to('.rv, #actions > *', { opacity: 1, y: 0, duration: 1, stagger: .1 }, '-=.8');
+
+/* Scroll-linked motion (scrub targets are separate from intro targets) */
+const st = { trigger: '#hero', start: 'top top', end: 'bottom top', scrub: .6 };
+gsap.to('.w1', { xPercent: -28, ease: 'none', scrollTrigger: st });
+gsap.to('.w2', { xPercent: 28, ease: 'none', scrollTrigger: st });
+gsap.to('#photoScroll', { yPercent: -7, scale: 1.04, ease: 'none', scrollTrigger: st });
+gsap.to('#frame', { yPercent: 4, ease: 'none', scrollTrigger: st });
+gsap.to(['#ui', '#motoWrap'], { opacity: 0, y: -40, ease: 'none', scrollTrigger: { ...st, end: '60% top' } });
+</script>
+</body>
+</html>

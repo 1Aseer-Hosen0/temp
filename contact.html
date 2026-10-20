@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact — Aseer Hosen</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&family=JetBrains+Mono:wght@400;500&family=Geist:wght@300;400&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<script>
+  tailwind.config = { theme: { extend: {
+    colors: { void:'#050505', base:'#0A0A0A', elevated:'#141414', ink:'#F5F5F7', cyan:{ DEFAULT:'#5bdcf7' }, mute:'#A1A1AA', dim:'#737373' },
+    fontFamily: { display:['"Bricolage Grotesque"','sans-serif'], sans:['Geist','sans-serif'], mono:['"JetBrains Mono"','monospace'] },
+    borderColor: { hair:'rgba(255,255,255,0.08)' }
+  } } }
+</script>
+<style>
+  html { scrollbar-width:none } html::-webkit-scrollbar { display:none }
+  body { background:#050505; color:#F5F5F7; font-family:Geist,sans-serif; -webkit-font-smoothing:antialiased }
+  ::selection { background:#5bdcf7; color:#050505 }
+  .grain { position:fixed; inset:0; z-index:90; pointer-events:none; opacity:.06;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E") }
+  .mono { font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.08em; text-transform:uppercase }
+  .h2 { font-family:'Bricolage Grotesque',sans-serif; font-variation-settings:'wdth' 75; font-weight:700; letter-spacing:-.03em; line-height:.95 }
+  .w { display:inline-block; overflow:hidden; vertical-align:top; padding:.08em .03em .12em; margin:-.08em -.03em -.12em } .wi { display:inline-block }
+  /* Fields */
+  .fld { position:relative } .lb { transition:color .3s } .fld:focus-within .lb { color:#5bdcf7 }
+  .inp { width:100%; background:transparent; border:0; border-bottom:1px solid rgba(255,255,255,.12); padding:14px 0; font:300 22px Geist,sans-serif; color:#F5F5F7; outline:none; border-radius:0; resize:none }
+  .inp::placeholder { color:#737373 }
+  .fl { position:absolute; left:0; right:0; bottom:0; height:1px; background:#5bdcf7; box-shadow:0 0 12px rgba(91,220,247,.5); transform:scaleX(0); transform-origin:left; transition:transform .6s cubic-bezier(.16,1,.3,1) }
+  .fld:focus-within .fl { transform:scaleX(1) }
+  .chip { height:42px; padding:0 20px; border-radius:9999px; border:1px solid rgba(255,255,255,.12); background:#0A0A0A; font:400 15px Geist,sans-serif; color:#A1A1AA; transition:border-color .3s, color .3s, background .3s }
+  .chip:hover { border-color:rgba(255,255,255,.3); color:#F5F5F7 }
+  .chip[aria-pressed=true] { background:rgba(91,220,247,.08); border-color:rgba(91,220,247,.5); color:#5bdcf7 }
+  .chip:focus-visible, .q:focus-visible, .lr:focus-visible { outline:1px solid #5bdcf7; outline-offset:3px }
+  .chk input { position:absolute; opacity:0 } .box { width:20px; height:20px; flex:none; border-radius:6px; border:1px solid rgba(255,255,255,.25); background:#141414; display:grid; place-items:center; transition:background .3s, border-color .3s }
+  .box svg { opacity:0; transform:scale(.4); transition:.3s cubic-bezier(.16,1,.3,1) }
+  .chk input:checked + .box { background:#5bdcf7; border-color:#5bdcf7 } .chk input:checked + .box svg { opacity:1; transform:scale(1) }
+  .chk input:focus-visible + .box { outline:1px solid #5bdcf7; outline-offset:3px }
+  .btn { display:inline-flex; align-items:center; height:52px; padding:0 32px; border-radius:9999px; border:1px solid rgba(255,255,255,.2); background:#0A0A0A; font:500 12px 'JetBrains Mono',monospace; letter-spacing:.08em; text-transform:uppercase;
+    box-shadow:inset 0 -10px 18px -12px rgba(91,220,247,.35); transition:border-color .3s, background .3s, transform .3s, opacity .3s }
+  .btn:not(:disabled):hover { border-color:#5bdcf7; background:#1A1A1A; transform:scale(1.02) } .btn:disabled { opacity:.35; cursor:not-allowed }
+  /* JSON panel */
+  .jl { padding:1px 6px; margin:0 -6px; border-radius:3px; word-break:break-word } .flash { animation:fl 1.4s ease-out } @keyframes fl { from { background:rgba(91,220,247,.2) } to { background:transparent } }
+  /* Rows + FAQ */
+  .lr { position:relative; transition:background .4s } .lr:hover { background:rgba(91,220,247,.03) }
+  .rin { transition:transform .55s cubic-bezier(.16,1,.3,1) } .lr:hover .rin { transform:translateX(8px) } .lr:hover .tt { color:#5bdcf7 }
+  .ar { display:inline-block; transition:transform .45s cubic-bezier(.16,1,.3,1) } .lr:hover .ar { transform:translate(4px,-4px) }
+  .a { height:0; overflow:hidden } .q:hover .qt { color:#5bdcf7 } .qt { transition:color .3s }
+  .pv { transform-origin:center }
+</style>
+</head>
+<body>
+<div class="grain"></div>
+
+<section id="contact" class="relative pl-6 pr-14 md:pl-20 md:pr-20 pt-28 md:pt-36 pb-28 md:pb-40 flex flex-col gap-32 md:gap-52">
+
+  <!-- ========== [01] THE BRIEF ========== -->
+  <div id="brief">
+    <div class="flex justify-between mono text-dim pb-4"><span><span class="text-cyan">[01]</span>&nbsp; The brief</span><span>≈ 2 min · 6 fields</span></div>
+    <div class="hl h-px bg-white/10 mb-10 md:mb-16"></div>
+    <h2 data-split class="h2 text-[clamp(40px,7vw,104px)] max-w-[14ch]">Sketch the idea. I’ll chart the route.</h2>
+
+    <div class="mt-14 md:mt-24 grid lg:grid-cols-12 gap-14 lg:gap-20">
+      <form id="form" class="lg:col-span-7 flex flex-col gap-10 md:gap-12" novalidate>
+        <div class="fld" data-rv><label for="nm" class="lb flex justify-between mono text-dim"><span><b class="font-normal text-mute mr-3">01</b>Your name</span><span>Required</span></label>
+          <input id="nm" class="inp" autocomplete="name" placeholder="Jane Doe"><i class="fl"></i></div>
+        <div class="fld" data-rv><label for="em" class="lb flex justify-between mono text-dim"><span><b class="font-normal text-mute mr-3">02</b>Email</span><span>Required</span></label>
+          <input id="em" type="email" class="inp" autocomplete="email" placeholder="jane@studio.com"><i class="fl"></i></div>
+        <div class="fld" data-rv><label for="co" class="lb flex justify-between mono text-dim"><span><b class="font-normal text-mute mr-3">03</b>Studio or company</span><span>Optional</span></label>
+          <input id="co" class="inp" autocomplete="organization" placeholder="Where you work"><i class="fl"></i></div>
+
+        <fieldset data-rv><legend class="flex justify-between w-full mono text-dim mb-4"><span><b class="font-normal text-mute mr-3">04</b>What do you need?</span><span>Pick any</span></legend>
+          <div class="flex flex-wrap gap-2.5">
+            <button type="button" class="chip" data-g="needs" aria-pressed="false" data-cursor="link">Interface design</button>
+            <button type="button" class="chip" data-g="needs" aria-pressed="false" data-cursor="link">Creative development</button>
+            <button type="button" class="chip" data-g="needs" aria-pressed="false" data-cursor="link">Motion &amp; interaction</button>
+            <button type="button" class="chip" data-g="needs" aria-pressed="false" data-cursor="link">Not sure yet</button>
+          </div></fieldset>
+        <fieldset data-rv><legend class="flex justify-between w-full mono text-dim mb-4"><span><b class="font-normal text-mute mr-3">05</b>Timeline</span><span>Pick one</span></legend>
+          <div class="flex flex-wrap gap-2.5">
+            <button type="button" class="chip" data-g="timeline" aria-pressed="false" data-cursor="link">ASAP</button>
+            <button type="button" class="chip" data-g="timeline" aria-pressed="false" data-cursor="link">1–3 months</button>
+            <button type="button" class="chip" data-g="timeline" aria-pressed="false" data-cursor="link">Later this year</button>
+            <button type="button" class="chip" data-g="timeline" aria-pressed="false" data-cursor="link">Just exploring</button>
+          </div></fieldset>
+
+        <div class="fld" data-rv><label for="bf" class="lb flex justify-between mono text-dim"><span><b class="font-normal text-mute mr-3">06</b>The brief</span><span><span id="wc">0</span> words · Required</span></label>
+          <textarea id="bf" rows="3" class="inp" placeholder="What are you making, for whom, and by when?"></textarea><i class="fl"></i></div>
+
+        <div class="flex flex-col gap-4 text-[15px] text-mute" data-rv>
+          <label class="chk relative flex gap-3 items-start cursor-pointer" data-cursor="link"><input id="nda" type="checkbox"><span class="box mt-0.5"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="#0A0A0A" stroke-width="2"><path d="M2 6.5l2.6 2.5L10 3.5"/></svg></span><span>Send me an NDA before we go into detail.</span></label>
+          <label class="chk relative flex gap-3 items-start cursor-pointer" data-cursor="link"><input id="ok" type="checkbox"><span class="box mt-0.5"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="#0A0A0A" stroke-width="2"><path d="M2 6.5l2.6 2.5L10 3.5"/></svg></span><span>My data is used only to reply to me, as described in the <a href="#" class="text-ink underline underline-offset-4 decoration-white/30 hover:decoration-cyan">privacy policy</a>. <span class="mono text-dim ml-1">Required</span></span></label>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-5" data-rv>
+          <button id="send" type="submit" class="btn text-ink" disabled data-cursor="link">Send the brief →</button>
+          <span id="msg" class="mono text-dim">Reply within 24h · Sun–Thu</span>
+        </div>
+      </form>
+
+      <!-- Live brief.json -->
+      <aside class="lg:col-span-5" data-rv>
+        <div class="lg:sticky lg:top-24 relative rounded-lg border border-hair bg-base">
+          <i class="absolute -top-px -left-px w-2.5 h-2.5 border-t border-l border-cyan"></i><i class="absolute -bottom-px -right-px w-2.5 h-2.5 border-b border-r border-cyan"></i>
+          <div class="flex items-center justify-between px-5 py-3.5 border-b border-hair mono text-mute"><span>brief.json</span><span id="state" class="px-2.5 py-1 rounded-full border border-hair text-dim">draft</span></div>
+          <pre id="json" class="px-5 py-5 font-mono text-[13px] leading-[1.75] text-mute whitespace-pre-wrap" aria-live="off"></pre>
+          <div class="px-5 py-4 border-t border-hair">
+            <div class="flex items-center justify-between mono text-mute mb-3"><span id="req">Required 0/4</span><span class="flex gap-1.5" id="ticks"><i class="w-6 h-[3px] rounded-full bg-white/10 transition-colors duration-500"></i><i class="w-6 h-[3px] rounded-full bg-white/10 transition-colors duration-500"></i><i class="w-6 h-[3px] rounded-full bg-white/10 transition-colors duration-500"></i><i class="w-6 h-[3px] rounded-full bg-white/10 transition-colors duration-500"></i></span></div>
+            <p class="mono text-dim normal-case tracking-normal text-[11px]">Compiled locally · sent only on submit</p>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <!-- ========== [02] ELSEWHERE ========== -->
+  <div id="elsewhere">
+    <div class="flex justify-between mono text-dim pb-4"><span><span class="text-cyan">[02]</span>&nbsp; Elsewhere</span><span>4 channels</span></div>
+    <div class="hl h-px bg-white/10 mb-10 md:mb-16"></div>
+    <div class="grid lg:grid-cols-12 gap-10 lg:gap-20">
+      <h2 data-split class="h2 lg:col-span-5 lg:sticky lg:top-28 self-start text-[clamp(40px,5.5vw,80px)]">Or find me here.</h2>
+      <ul class="lg:col-span-7 border-t border-hair">
+        <li data-rv class="flex items-stretch border-b border-hair"><a href="mailto:hello@yourdomain.com" class="lr flex-1 flex items-center gap-5 md:gap-8 py-7 pr-2" data-cursor="link"><span class="rin flex items-center gap-5 md:gap-8 w-full"><span class="mono text-dim w-6">01</span><span class="tt font-display text-[28px] md:text-[34px] font-semibold tracking-tight w-28 md:w-40 [font-variation-settings:'wdth'_75] transition-colors">Email</span><span class="flex-1 min-w-0"><span class="block font-mono text-[13px] text-ink truncate">hello@yourdomain.com</span><span class="block text-[14px] text-mute mt-1">Briefs, questions, NDAs. The fastest way.</span></span></span><span class="ar text-xl text-mute">→</span></a>
+          <button id="copy" class="mono text-mute hover:text-cyan transition-colors px-4 self-center" data-cursor="link">Copy</button></li>
+        <li data-rv class="border-b border-hair"><a href="#" class="lr flex items-center gap-5 md:gap-8 py-7 pr-2" data-cursor="link"><span class="rin flex items-center gap-5 md:gap-8 w-full"><span class="mono text-dim w-6">02</span><span class="tt font-display text-[28px] md:text-[34px] font-semibold tracking-tight w-28 md:w-40 [font-variation-settings:'wdth'_75] transition-colors">LinkedIn</span><span class="flex-1 min-w-0"><span class="block font-mono text-[13px] text-ink">in/aseerhosen</span><span class="block text-[14px] text-mute mt-1">New work and the occasional note.</span></span></span><span class="ar text-xl text-mute">↗</span></a></li>
+        <li data-rv class="border-b border-hair"><a href="#" class="lr flex items-center gap-5 md:gap-8 py-7 pr-2" data-cursor="link"><span class="rin flex items-center gap-5 md:gap-8 w-full"><span class="mono text-dim w-6">03</span><span class="tt font-display text-[28px] md:text-[34px] font-semibold tracking-tight w-28 md:w-40 [font-variation-settings:'wdth'_75] transition-colors">GitHub</span><span class="flex-1 min-w-0"><span class="block font-mono text-[13px] text-ink">aseerhosen</span><span class="block text-[14px] text-mute mt-1">Code, experiments, open-source bits.</span></span></span><span class="ar text-xl text-mute">↗</span></a></li>
+        <li data-rv class="border-b border-hair"><a href="#" class="lr flex items-center gap-5 md:gap-8 py-7 pr-2" data-cursor="link"><span class="rin flex items-center gap-5 md:gap-8 w-full"><span class="mono text-dim w-6">04</span><span class="tt font-display text-[28px] md:text-[34px] font-semibold tracking-tight w-28 md:w-40 [font-variation-settings:'wdth'_75] transition-colors">Dribbble</span><span class="flex-1 min-w-0"><span class="block font-mono text-[13px] text-ink">aseerhosen</span><span class="block text-[14px] text-mute mt-1">Shots, studies and works in progress.</span></span></span><span class="ar text-xl text-mute">↗</span></a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ========== [03] BEFORE YOU WRITE ========== -->
+  <div id="faq">
+    <div class="flex justify-between mono text-dim pb-4"><span><span class="text-cyan">[03]</span>&nbsp; Before you write</span><span>Updated · Oct 2026</span></div>
+    <div class="hl h-px bg-white/10 mb-10 md:mb-16"></div>
+    <div class="grid lg:grid-cols-12 gap-10 lg:gap-20">
+      <h2 data-split class="h2 lg:col-span-5 lg:sticky lg:top-28 self-start text-[clamp(40px,5.5vw,80px)]">Questions people ask first.</h2>
+      <div class="lg:col-span-7 border-t border-hair" id="faqList">
+        <div data-rv class="border-b border-hair"><button class="q w-full flex items-center gap-5 md:gap-8 py-7 text-left" aria-expanded="false" data-cursor="link"><span class="mono text-dim w-6">01</span><span class="qt flex-1 text-[19px] md:text-[22px]">Can you sign an NDA before we talk?</span><span class="relative w-4 h-4 flex-none"><i class="absolute left-0 right-0 top-1/2 h-px bg-ink"></i><i class="pv absolute top-0 bottom-0 left-1/2 w-px bg-ink"></i></span></button><div class="a"><p class="pl-11 md:pl-14 pr-10 pb-7 max-w-[62ch] text-mute leading-relaxed">Yes. Tick the box in the form or mention it in your email, and I’ll sign yours or send mine before you share anything confidential.</p></div></div>
+        <div data-rv class="border-b border-hair"><button class="q w-full flex items-center gap-5 md:gap-8 py-7 text-left" aria-expanded="false" data-cursor="link"><span class="mono text-dim w-6">02</span><span class="qt flex-1 text-[19px] md:text-[22px]">Do you work with studios, or direct clients too?</span><span class="relative w-4 h-4 flex-none"><i class="absolute left-0 right-0 top-1/2 h-px bg-ink"></i><i class="pv absolute top-0 bottom-0 left-1/2 w-px bg-ink"></i></span></button><div class="a"><p class="pl-11 md:pl-14 pr-10 pb-7 max-w-[62ch] text-mute leading-relaxed">Both. Studios usually need an extra pair of hands on a hard build; direct clients usually need a site that feels considered from the first scroll to the last.</p></div></div>
+        <div data-rv class="border-b border-hair"><button class="q w-full flex items-center gap-5 md:gap-8 py-7 text-left" aria-expanded="false" data-cursor="link"><span class="mono text-dim w-6">03</span><span class="qt flex-1 text-[19px] md:text-[22px]">Can I get a quote without a call?</span><span class="relative w-4 h-4 flex-none"><i class="absolute left-0 right-0 top-1/2 h-px bg-ink"></i><i class="pv absolute top-0 bottom-0 left-1/2 w-px bg-ink"></i></span></button><div class="a"><p class="pl-11 md:pl-14 pr-10 pb-7 max-w-[62ch] text-mute leading-relaxed">If the brief is clear, yes. I’ll send a written estimate by email. When there are open questions, a short call saves us both a round of guesses.</p></div></div>
+        <div data-rv class="border-b border-hair"><button class="q w-full flex items-center gap-5 md:gap-8 py-7 text-left" aria-expanded="false" data-cursor="link"><span class="mono text-dim w-6">04</span><span class="qt flex-1 text-[19px] md:text-[22px]">What makes a good brief?</span><span class="relative w-4 h-4 flex-none"><i class="absolute left-0 right-0 top-1/2 h-px bg-ink"></i><i class="pv absolute top-0 bottom-0 left-1/2 w-px bg-ink"></i></span></button><div class="a"><p class="pl-11 md:pl-14 pr-10 pb-7 max-w-[62ch] text-mute leading-relaxed">What you’re making and for whom, the deadline and the reason behind it, what’s already decided, and what worries you. A Figma link or a deck beats a long email.</p></div></div>
+        <div data-rv class="border-b border-hair"><button class="q w-full flex items-center gap-5 md:gap-8 py-7 text-left" aria-expanded="false" data-cursor="link"><span class="mono text-dim w-6">05</span><span class="qt flex-1 text-[19px] md:text-[22px]">Which time zone are you in?</span><span class="relative w-4 h-4 flex-none"><i class="absolute left-0 right-0 top-1/2 h-px bg-ink"></i><i class="pv absolute top-0 bottom-0 left-1/2 w-px bg-ink"></i></span></button><div class="a"><p class="pl-11 md:pl-14 pr-10 pb-7 max-w-[62ch] text-mute leading-relaxed">Dhaka, UTC+6. That overlaps comfortably with Asia and with Europe’s morning. Calls with the Americas happen in my evening, and I’m happy to schedule them that way.</p></div></div>
+        <div data-rv class="border-b border-hair"><button class="q w-full flex items-center gap-5 md:gap-8 py-7 text-left" aria-expanded="false" data-cursor="link"><span class="mono text-dim w-6">06</span><span class="qt flex-1 text-[19px] md:text-[22px]">What happens to the data I send?</span><span class="relative w-4 h-4 flex-none"><i class="absolute left-0 right-0 top-1/2 h-px bg-ink"></i><i class="pv absolute top-0 bottom-0 left-1/2 w-px bg-ink"></i></span></button><div class="a"><p class="pl-11 md:pl-14 pr-10 pb-7 max-w-[62ch] text-mute leading-relaxed">It’s used only to reply to you. No newsletter, no tracking cookies, and nothing is stored beyond the conversation.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+gsap.registerPlugin(ScrollTrigger);
+const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
+
+/* ---- Scroll reveals: masked word rise, drawn hairlines, staggered fade-ups ---- */
+$$('[data-split]').forEach(el => {
+  const t = el.textContent.trim(); el.setAttribute('aria-label', t);
+  el.innerHTML = t.split(' ').map(w => `<span class="w" aria-hidden="true"><span class="wi">${w}</span></span>`).join(' ');
+  const wi = el.querySelectorAll('.wi'); gsap.set(wi, { yPercent: 115 });
+  ScrollTrigger.create({ trigger: el, start: 'top 88%', once: true, onEnter: () => gsap.to(wi, { yPercent: 0, duration: 1.3, stagger: .07, ease: 'expo.out' }) });
+});
+$$('.hl').forEach(h => { gsap.set(h, { scaleX: 0, transformOrigin: 'left' });
+  ScrollTrigger.create({ trigger: h, start: 'top 92%', once: true, onEnter: () => gsap.to(h, { scaleX: 1, duration: 1.5, ease: 'expo.inOut' }) }); });
+gsap.set('[data-rv]', { opacity: 0, y: 28 });
+ScrollTrigger.batch('[data-rv]', { start: 'top 92%', once: true, onEnter: b => gsap.to(b, { opacity: 1, y: 0, duration: 1.1, stagger: .08, ease: 'expo.out' }) });
+
+/* ---- Brief form with live brief.json ---- */
+const st = { needs: new Set(), timeline: null }, prev = {}, jsonEl = $('#json'), ticks = $$('#ticks i');
+const words = s => (s.trim().match(/\S+/g) || []).length, esc = s => s.replace(/&/g, '&amp;').replace(/</g, '&lt;');
+const data = () => ({ from: $('#nm').value.trim() || null, email: $('#em').value.trim() || null, company: $('#co').value.trim() || null,
+  needs: st.needs.size ? [...st.needs] : null, timeline: st.timeline, nda: $('#nda').checked || null, words: words($('#bf').value) || null });
+const cls = v => v === null ? 'text-dim' : (typeof v === 'string' || Array.isArray(v)) ? 'text-ink' : 'text-cyan';
+function render() {
+  const d = data(), keys = Object.keys(d);
+  jsonEl.innerHTML = '<div>{</div>' + keys.map((k, i) => {
+    const s = JSON.stringify(d[k]), ch = prev[k] !== undefined && prev[k] !== s; prev[k] = s;
+    return `<div class="jl ${ch ? 'flash' : ''}">&nbsp;&nbsp;<span class="text-mute">"${k}"</span>: <span class="${cls(d[k])}">${esc(s)}</span>${i < keys.length - 1 ? ',' : ''}</div>`;
+  }).join('') + '<div>}</div>';
+  const ok = [!!d.from, /^\S+@\S+\.\S+$/.test(d.email || ''), !!d.words, $('#ok').checked], n = ok.filter(Boolean).length;
+  ticks.forEach((t, i) => t.style.background = ok[i] ? '#5bdcf7' : '');
+  $('#req').textContent = `Required ${n}/4`; $('#wc').textContent = words($('#bf').value);
+  const rdy = n === 4, s = $('#state'); s.textContent = rdy ? 'ready' : 'draft';
+  s.className = 'px-2.5 py-1 rounded-full border ' + (rdy ? 'border-cyan/40 bg-cyan/[.06] text-cyan' : 'border-hair text-dim');
+  $('#send').disabled = !rdy;
+}
+$('#form').addEventListener('input', e => { if (e.target.id === 'bf') { e.target.style.height = 'auto'; e.target.style.height = e.target.scrollHeight + 'px'; } render(); });
+$$('.chip').forEach(c => c.addEventListener('click', () => {
+  const on = c.getAttribute('aria-pressed') !== 'true', g = c.dataset.g;
+  if (g === 'needs') on ? st.needs.add(c.textContent) : st.needs.delete(c.textContent);
+  else { $$('.chip[data-g=timeline]').forEach(x => x.setAttribute('aria-pressed', 'false')); st.timeline = on ? c.textContent : null; }
+  c.setAttribute('aria-pressed', on); render();
+}));
+render();
+
+/* Submit: set ENDPOINT (Formspree, Netlify, your API) or it falls back to opening your email app */
+const ENDPOINT = '', TO = 'hello@yourdomain.com';
+$('#form').addEventListener('submit', async e => {
+  e.preventDefault(); const p = { ...data(), brief: $('#bf').value.trim() }, m = $('#msg'), b = $('#send'); b.disabled = true;
+  if (ENDPOINT) {
+    try { await fetch(ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(p) }); m.textContent = 'Sent. I’ll reply within 24h.'; m.className = 'mono text-cyan'; }
+    catch { m.textContent = 'Something failed. Please email me directly.'; b.disabled = false; }
+  } else {
+    location.href = `mailto:${TO}?subject=${encodeURIComponent('Brief from ' + p.from)}&body=${encodeURIComponent(JSON.stringify(p, null, 2))}`;
+    m.textContent = 'Opening your email app…'; setTimeout(() => b.disabled = false, 2000);
+  }
+});
+
+/* Copy email */
+$('#copy').addEventListener('click', e => { navigator.clipboard.writeText('hello@yourdomain.com'); e.target.textContent = 'Copied'; setTimeout(() => e.target.textContent = 'Copy', 1600); });
+
+/* FAQ accordion */
+$$('.q').forEach(q => q.addEventListener('click', () => {
+  const open = q.getAttribute('aria-expanded') === 'true', a = q.nextElementSibling;
+  q.setAttribute('aria-expanded', !open);
+  gsap.to(a, { height: open ? 0 : 'auto', duration: .8, ease: 'expo.out', onComplete: () => ScrollTrigger.refresh() });
+  gsap.to(q.querySelector('.pv'), { scaleY: open ? 1 : 0, duration: .5, ease: 'expo.out' });
+}));
+</script>
+</body>
+</html>

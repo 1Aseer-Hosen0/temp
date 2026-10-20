@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About — Aseer Hosen</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&family=JetBrains+Mono:wght@400;500&family=Geist:wght@300;400&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<script>
+  tailwind.config = { theme: { extend: {
+    colors: { void:'#050505', base:'#0A0A0A', elevated:'#141414', ink:'#F5F5F7', cyan:{ DEFAULT:'#5bdcf7' }, mute:'#A1A1AA', dim:'#737373' },
+    fontFamily: { display:['"Bricolage Grotesque"','sans-serif'], sans:['Geist','sans-serif'], mono:['"JetBrains Mono"','monospace'] },
+    borderColor: { hair:'rgba(255,255,255,0.08)' }
+  } } }
+</script>
+<style>
+  html { scrollbar-width:none } html::-webkit-scrollbar { display:none }
+  body { background:#050505; color:#F5F5F7; font-family:Geist,sans-serif; -webkit-font-smoothing:antialiased }
+  ::selection { background:#5bdcf7; color:#050505 }
+  .grain { position:fixed; inset:0; z-index:90; pointer-events:none; opacity:.06;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E") }
+  .mono { font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.08em; text-transform:uppercase }
+  .h2 { font-family:'Bricolage Grotesque',sans-serif; font-variation-settings:'wdth' 75; font-weight:700; letter-spacing:-.03em; line-height:.95 }
+  .w { display:inline-block; overflow:hidden; vertical-align:top; padding:.08em .03em .12em; margin:-.08em -.03em -.12em } .wi { display:inline-block }
+  .btn { display:inline-flex; align-items:center; height:52px; padding:0 32px; border-radius:9999px; border:1px solid rgba(255,255,255,.2); background:#0A0A0A; font:500 12px 'JetBrains Mono',monospace; letter-spacing:.08em; text-transform:uppercase;
+    box-shadow:inset 0 -10px 18px -12px rgba(91,220,247,.35); transition:border-color .3s, background .3s, transform .3s }
+  .btn:hover { border-color:#5bdcf7; background:#1A1A1A; transform:scale(1.02) } .btn:focus-visible, .ul:focus-visible { outline:1px solid #5bdcf7; outline-offset:4px }
+  .ul { background:linear-gradient(currentColor,currentColor) 0 100%/0 1px no-repeat; transition:background-size .55s cubic-bezier(.16,1,.3,1), color .3s; padding-bottom:3px }
+  .ul:hover { background-size:100% 1px; color:#5bdcf7 } .ul .arr { display:inline-block; transition:transform .4s cubic-bezier(.16,1,.3,1) } .ul:hover .arr { transform:translate(2px,-2px) }
+  @keyframes ping { 0%{ box-shadow:0 0 0 0 rgba(91,220,247,.6) } 100%{ box-shadow:0 0 0 9px rgba(91,220,247,0) } } .dot { animation:ping 2s infinite }
+  /* Profile: statement lights up word by word as it scrolls through */
+  .wd { color:#F5F5F7 } .wd.em { color:#5bdcf7 } @media (prefers-reduced-motion:no-preference) { .wd { opacity:.16 } }
+  #rings ellipse { vector-effect:non-scaling-stroke }
+  /* Education: timeline */
+  .tlp { transform-origin:top }
+  .nd { background:#5bdcf7; border:1px solid #5bdcf7; box-shadow:0 0 14px rgba(91,220,247,.55); transition:background .5s, border-color .5s, box-shadow .5s }
+  .nd.off { background:#050505; border-color:rgba(255,255,255,.22); box-shadow:none }
+  .tt { transition:color .3s } .ed:hover .tt, .cr:hover .tt { color:#5bdcf7 }
+  .gh { color:rgba(255,255,255,.04); transition:color .5s } .ed:hover .gh { color:rgba(91,220,247,.1) }
+  /* Certificates: index list */
+  .cr { transition:background .4s } .cr:hover { background:rgba(91,220,247,.03) } .cr:focus-visible { outline:1px solid #5bdcf7; outline-offset:-1px }
+  .rin { transition:transform .55s cubic-bezier(.16,1,.3,1) } .cr:hover .rin { transform:translateX(8px) }
+  .ar { display:inline-block; transition:transform .45s cubic-bezier(.16,1,.3,1) } .cr:hover .ar { transform:translate(4px,-4px) }
+  @media (hover:none) { #ctip { display:none } }
+</style>
+</head>
+<body>
+<div class="grain"></div>
+
+<!-- Floating certificate preview that follows the cursor -->
+<div id="ctip" class="fixed left-0 top-0 z-[80] pointer-events-none w-[250px] rounded-lg border border-hair bg-elevated/90 backdrop-blur-[16px] p-5" style="box-shadow:0 0 40px -10px rgba(91,220,247,.25);opacity:0">
+  <i class="absolute -top-px -left-px w-2.5 h-2.5 border-t border-l border-cyan"></i><i class="absolute -bottom-px -right-px w-2.5 h-2.5 border-b border-r border-cyan"></i>
+  <div id="ctipIn"></div>
+</div>
+
+<section id="about" class="relative pl-6 pr-14 md:pl-20 md:pr-20 pt-28 md:pt-36 pb-28 md:pb-40 flex flex-col gap-32 md:gap-52">
+
+  <!-- ========== [01] PROFILE ========== -->
+  <div id="profile">
+    <div class="flex justify-between mono text-dim pb-4"><span><span class="text-cyan">[01]</span>&nbsp; About</span><span>fig. 03 · portrait</span></div>
+    <div class="hl h-px bg-white/10 mb-10 md:mb-16"></div>
+    <h2 data-split class="h2 text-[clamp(40px,7vw,104px)] max-w-[14ch]">Feeling first, then the build.</h2>
+
+    <div class="mt-14 md:mt-24 grid lg:grid-cols-12 gap-14 lg:gap-20">
+      <div class="lg:col-span-5">
+        <figure id="photo" class="lg:sticky lg:top-24" data-cursor="hello">
+          <div class="relative">
+            <i class="absolute -top-px -left-px w-2.5 h-2.5 border-t border-l border-cyan z-10"></i><i class="absolute -bottom-px -right-px w-2.5 h-2.5 border-b border-r border-cyan z-10"></i>
+            <div id="tilt" class="relative aspect-[4/5] rounded-lg border border-hair bg-base overflow-hidden" style="box-shadow:0 0 40px -10px rgba(91,220,247,.08)">
+              <svg id="rings" class="absolute inset-0 w-full h-full" viewBox="0 0 400 500" fill="none" preserveAspectRatio="xMidYMid slice" aria-hidden="true"></svg>
+              <div class="absolute inset-0" style="background:radial-gradient(ellipse at 50% 100%,rgba(91,220,247,.12),transparent 60%)"></div>
+              <span id="mono" class="hidden grid absolute inset-0 place-items-center h2 text-[clamp(120px,16vw,220px)] text-white/[.06]" aria-hidden="true">AH</span>
+              <div id="pimg" class="absolute inset-0" style="transform-origin:50% 100%">
+                <img src="aseer.png" alt="Portrait of Aseer Hosen" class="absolute bottom-0 left-1/2 -translate-x-1/2 h-[108%] aspect-square max-w-none" style="filter:contrast(1.05) saturate(.9)" onerror="this.remove();document.getElementById('mono').classList.remove('hidden')">
+              </div>
+            </div>
+          </div>
+          <figcaption class="flex justify-between mono text-dim mt-4"><span>Aseer Hosen</span><span>23.81° N · 90.41° E</span></figcaption>
+        </figure>
+      </div>
+
+      <div class="lg:col-span-7 flex flex-col gap-12 md:gap-16">
+        <p id="lead" class="text-[clamp(24px,2.7vw,42px)] font-light leading-[1.22] tracking-[-.01em]"></p>
+        <p id="body" data-rv class="text-mute leading-relaxed max-w-[52ch] text-[16px] md:text-[17px]"></p>
+        <dl id="facts" class="border-t border-hair"></dl>
+        <div data-rv class="flex flex-wrap items-center gap-x-8 gap-y-5">
+          <a href="#contact" class="btn text-ink" data-cursor="link">Let’s talk →</a>
+          <a href="#" class="ul text-ink text-[15px]" data-cursor="link">Download CV <span class="arr">↓</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== [02] EDUCATION ========== -->
+  <div id="education">
+    <div class="flex justify-between mono text-dim pb-4"><span><span class="text-cyan">[02]</span>&nbsp; Education</span><span id="eduMeta"></span></div>
+    <div class="hl h-px bg-white/10 mb-10 md:mb-16"></div>
+    <div class="grid lg:grid-cols-12 gap-10 lg:gap-20">
+      <div class="lg:col-span-5 lg:sticky lg:top-28 self-start">
+        <h2 data-split class="h2 text-[clamp(40px,5.5vw,80px)]">Where the craft began.</h2>
+        <p data-rv class="mt-8 text-mute leading-relaxed max-w-[34ch]">Formal study, newest first. The line fills in as you scroll.</p>
+      </div>
+      <div id="tl" class="lg:col-span-7 relative">
+        <i class="absolute left-[5px] top-2 bottom-2 w-px bg-white/10"></i><i class="tlp absolute left-[5px] top-2 bottom-2 w-px bg-cyan" style="box-shadow:0 0 12px rgba(91,220,247,.5)"></i>
+        <ol id="edu"></ol>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== [03] CERTIFICATES ========== -->
+  <div id="certificates">
+    <div class="flex justify-between mono text-dim pb-4"><span><span class="text-cyan">[03]</span>&nbsp; Certificates</span><span id="certMeta"></span></div>
+    <div class="hl h-px bg-white/10 mb-10 md:mb-16"></div>
+    <h2 data-split class="h2 text-[clamp(40px,7vw,104px)] max-w-[14ch]">Proof of practice.</h2>
+    <div class="mt-14 md:mt-24">
+      <div class="hidden md:grid grid-cols-12 gap-4 mono text-dim pb-3 pr-8"><span>No.</span><span class="col-span-6">Credential</span><span class="col-span-3">Issuer</span><span class="col-span-2 text-right">Year</span></div>
+      <ul id="certs" class="border-t border-hair"></ul>
+    </div>
+  </div>
+</section>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+gsap.registerPlugin(ScrollTrigger);
+const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
+
+/* ---------- Content (edit these; React port = map over them). *word* = highlighted in the statement ---------- */
+const ABOUT = {
+  lead: 'I’m Aseer, an interface designer and creative developer in Dhaka. I start with a *feeling*, shape it into a *system* of type, space and motion, then build every detail by hand so it survives the browser. Slow, precise, and made to be *remembered*.',
+  body: 'I join studios as an extra pair of hands on hard builds, and work with direct clients who want a site that feels considered from the first scroll to the last. Semantic markup, motion that holds 60 fps and keyboard-first details come standard.',
+  facts: [['Based in', 'Dhaka, BD · UTC+6'], ['Practice', 'Interface design, creative development, motion'], ['Works with', 'Studios and direct clients'], ['Status', 'Open for projects', 1]]
+};
+/* PLACEHOLDERS: replace with your real education and credentials, newest first */
+const EDU = [
+  { y: '2020–2024', t: 'Bachelor’s Degree', s: 'University Name', l: 'Dhaka, BD', n: 'One line on your major, thesis or honours.' },
+  { y: '2018–2020', t: 'Higher Secondary', s: 'College Name', l: 'Dhaka, BD', n: 'One line on your focus or a result you’re proud of.' },
+  { y: '2008–2018', t: 'Secondary School', s: 'School Name', l: 'Dhaka, BD', n: 'One line on where the interest in design started.' }
+];
+const CERTS = [
+  { n: 'UI/UX Design Specialization', i: 'Issuer Name', y: '2025', id: 'CRED-0001', u: '#' },
+  { n: 'Advanced JavaScript', i: 'Issuer Name', y: '2024', id: 'CRED-0002', u: '#' },
+  { n: 'Web Accessibility (WCAG 2.1)', i: 'Issuer Name', y: '2024', id: 'CRED-0003', u: '#' },
+  { n: 'Motion Design Fundamentals', i: 'Issuer Name', y: '2023', id: 'CRED-0004', u: '#' },
+  { n: 'Responsive Web Design', i: 'Issuer Name', y: '2022', id: 'CRED-0005', u: '#' }
+];
+
+/* ---------- Render ---------- */
+$('#lead').innerHTML = ABOUT.lead.split(' ').map(w => `<span class="wd${w[0] === '*' ? ' em' : ''}">${w.replace(/\*/g, '')}</span>`).join(' ');
+$('#body').textContent = ABOUT.body;
+$('#facts').innerHTML = ABOUT.facts.map(f => `<div data-rv class="flex items-baseline justify-between gap-8 border-b border-hair py-4"><dt class="mono text-dim shrink-0">${f[0]}</dt><dd class="text-right text-[15px] text-ink/90">${f[2] ? '<i class="dot inline-block w-1.5 h-1.5 mr-2.5 rounded-full bg-cyan align-middle"></i>' : ''}${f[1]}</dd></div>`).join('');
+$('#rings').innerHTML = Array.from({ length: 8 }, (_, i) => `<ellipse cx="200" cy="300" rx="${50 + i * 42}" ry="${60 + i * 52}" stroke="${i % 3 ? 'rgba(255,255,255,.08)' : 'rgba(91,220,247,.28)'}"/>`).join('');
+$('#eduMeta').textContent = `${EDU.length} chapters · newest first`;
+$('#edu').innerHTML = EDU.map((e, i) => `
+  <li class="ed relative pl-10 md:pl-14 pb-14 md:pb-20 last:pb-0" data-rv>
+    <i class="nd absolute left-0 top-2 w-[11px] h-[11px] rounded-full"></i>
+    <span class="gh absolute right-0 top-0 font-mono text-[clamp(72px,9vw,132px)] leading-none select-none pointer-events-none" aria-hidden="true">${String(i + 1).padStart(2, '0')}</span>
+    <span class="mono text-dim">${e.y}</span>
+    <h3 class="tt h2 text-[clamp(30px,3.8vw,54px)] mt-3 max-w-[16ch]">${e.t}</h3>
+    <p class="mono text-cyan mt-4">${e.s}<span class="text-dim"> · ${e.l}</span></p>
+    <p class="text-mute leading-relaxed max-w-[46ch] mt-4">${e.n}</p>
+  </li>`).join('');
+$('#certMeta').textContent = `${CERTS.length} credentials`;
+$('#certs').innerHTML = CERTS.map((c, k) => `
+  <li data-rv class="border-b border-hair"><a href="${c.u}" class="cr relative flex items-center py-6 md:py-7 pr-8 outline-none" data-cursor="link" data-i="${k}">
+    <span class="rin grid grid-cols-12 items-center gap-4 w-full">
+      <span class="mono text-dim col-span-2 md:col-span-1">${String(k + 1).padStart(2, '0')}</span>
+      <span class="col-span-10 md:col-span-6"><span class="tt h2 block text-[clamp(26px,3.2vw,44px)]">${c.n}</span><span class="md:hidden block mono text-dim normal-case tracking-normal text-[12px] mt-2">${c.i} · ${c.y}</span></span>
+      <span class="hidden md:block col-span-3 mono text-mute normal-case tracking-normal text-[12px]">${c.i}</span>
+      <span class="hidden md:block col-span-2 mono text-dim text-right">${c.y}</span>
+    </span><span class="ar absolute right-0 text-xl text-mute">↗</span></a></li>`).join('');
+
+/* ---------- Motion (skipped entirely when the visitor prefers reduced motion) ---------- */
+gsap.matchMedia().add('(prefers-reduced-motion: no-preference)', () => {
+  $$('[data-split]').forEach(el => {
+    const t = el.textContent.trim(); el.setAttribute('aria-label', t);
+    el.innerHTML = t.split(' ').map(w => `<span class="w" aria-hidden="true"><span class="wi">${w}</span></span>`).join(' ');
+    const wi = el.querySelectorAll('.wi'); gsap.set(wi, { yPercent: 115 });
+    ScrollTrigger.create({ trigger: el, start: 'top 88%', once: true, onEnter: () => gsap.to(wi, { yPercent: 0, duration: 1.3, stagger: .07, ease: 'expo.out' }) });
+  });
+  $$('.hl').forEach(h => { gsap.set(h, { scaleX: 0, transformOrigin: 'left' });
+    ScrollTrigger.create({ trigger: h, start: 'top 92%', once: true, onEnter: () => gsap.to(h, { scaleX: 1, duration: 1.5, ease: 'expo.inOut' }) }); });
+  gsap.set('[data-rv]', { opacity: 0, y: 28 });
+  ScrollTrigger.batch('[data-rv]', { start: 'top 92%', once: true, onEnter: b => gsap.to(b, { opacity: 1, y: 0, duration: 1.1, stagger: .08, ease: 'expo.out' }) });
+
+  /* The one big moment: the statement is read aloud by your scroll */
+  gsap.to('.wd', { opacity: 1, stagger: .1, ease: 'none', scrollTrigger: { trigger: '#lead', start: 'top 82%', end: 'bottom 55%', scrub: true } });
+
+  /* Portrait: wipe in, drift inside the frame, contour rings turn slowly */
+  const sc = { trigger: '#photo', start: 'top bottom', end: 'bottom top', scrub: .6 };
+  gsap.fromTo('#tilt', { clipPath: 'inset(100% 0% 0% 0%)' }, { clipPath: 'inset(0% 0% 0% 0%)', duration: 1.4, ease: 'expo.inOut', scrollTrigger: { trigger: '#photo', start: 'top 85%', once: true } });
+  gsap.fromTo('#pimg', { yPercent: -2, scale: 1.06 }, { yPercent: 5, scale: 1, ease: 'none', scrollTrigger: sc });
+  gsap.fromTo('#rings', { rotate: -8, scale: 1, transformOrigin: '50% 60%' }, { rotate: 14, scale: 1.18, ease: 'none', scrollTrigger: sc });
+  if (!matchMedia('(hover:none)').matches) {
+    const fr = $('#tilt'); gsap.set(fr, { transformPerspective: 900 });
+    const rx = gsap.quickTo(fr, 'rotationX', { duration: .9, ease: 'power3' }), ry = gsap.quickTo(fr, 'rotationY', { duration: .9, ease: 'power3' });
+    $('#photo').addEventListener('mousemove', e => { const r = e.currentTarget.getBoundingClientRect(); ry(((e.clientX - r.left) / r.width - .5) * 10); rx(-((e.clientY - r.top) / r.height - .5) * 8); });
+    $('#photo').addEventListener('mouseleave', () => { rx(0); ry(0); });
+  }
+
+  /* Timeline: the cyan line draws down the page and lights each chapter as it arrives */
+  gsap.fromTo('.tlp', { scaleY: 0 }, { scaleY: 1, ease: 'none', scrollTrigger: { trigger: '#tl', start: 'top 60%', end: 'bottom 60%', scrub: true } });
+  $$('.ed').forEach(li => { const n = li.querySelector('.nd'); n.classList.add('off');
+    ScrollTrigger.create({ trigger: li, start: 'top 62%', onEnter: () => n.classList.remove('off'), onLeaveBack: () => n.classList.add('off') }); });
+});
+
+/* ---------- Certificates: cursor-following credential preview ---------- */
+const ct = $('#ctip'), ci = $('#ctipIn'); gsap.set(ct, { scale: .6 });
+const qx = gsap.quickTo(ct, 'x', { duration: .55, ease: 'power3' }), qy = gsap.quickTo(ct, 'y', { duration: .55, ease: 'power3' }), qr = gsap.quickTo(ct, 'rotation', { duration: .7, ease: 'power3' });
+const px = x => Math.min(x + 30, innerWidth - 280);
+let lx = 0, shown = false, rt;
+addEventListener('mousemove', e => { qx(px(e.clientX)); qy(e.clientY - 70); qr(gsap.utils.clamp(-12, 12, (e.clientX - lx) * .5)); lx = e.clientX; clearTimeout(rt); rt = setTimeout(() => qr(0), 90); });
+function show(a, x, y) {
+  const c = CERTS[a.dataset.i];
+  ci.innerHTML = `<span class="mono text-cyan text-[9px]">${c.i}</span><p class="h2 text-[26px] mt-3 mb-5">${c.n}</p><div class="flex justify-between mono text-dim text-[9px] border-t border-hair pt-3"><span>${c.id}</span><span>${c.y}</span></div>`;
+  if (!shown) { gsap.set(ct, { x: px(x), y: y - 70 }); shown = true; }
+  gsap.to(ct, { opacity: 1, scale: 1, duration: .55, ease: 'expo.out', overwrite: 'auto' });
+  gsap.fromTo(ci, { y: 10, opacity: 0 }, { y: 0, opacity: 1, duration: .6, ease: 'expo.out', overwrite: true });
+}
+const hide = () => { shown = false; gsap.to(ct, { opacity: 0, scale: .6, duration: .35, ease: 'power3.in', overwrite: 'auto' }); };
+$$('.cr').forEach(a => {
+  a.addEventListener('mouseenter', e => show(a, e.clientX, e.clientY)); a.addEventListener('mouseleave', hide);
+  a.addEventListener('focus', () => { const r = a.getBoundingClientRect(); show(a, r.right - 300, r.top + r.height / 2 + 70); }); a.addEventListener('blur', hide);
+});
+</script>
+</body>
+</html>
